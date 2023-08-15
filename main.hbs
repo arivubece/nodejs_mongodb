@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo DB CRUD Example</title>
+</head>
+<body style="font-family:Arial, Helvetica, sans-serif;">
+
+<center>
+    <h1>NODE JS - Mongo DB CRUD</h1>
+    {{msg}}
+
+{{#if edit_id}}
+
+<h3>Edit User</h3>
+<form action="/edit_user" method="post" enctype="multipart/form-data">
+<input type="hidden" name="user_id" value="{{edit_id}}" />
+<table cellpadding="6px">
+    <tr><td>Name:</td><td><input type="text" name="user_name" value="{{edit_user.name}}" /></td></tr>
+    <tr><td>Age:</td><td><input type="text" name="user_age" value="{{edit_user.age}}" /></td></tr>
+    <tr><td>Photo:</td><td><input type="file" name="photo" /></td></tr>
+    <tr><td colspan="2" align="center"><input style="zoom:1.3" type="submit"  /></td></tr>
+</table>  
+</form>
+
+{{else}}
+
+<h3>Add User</h3>
+<form action="/add_user" method="post" enctype="multipart/form-data">
+<table cellpadding="6px">
+    <tr><td>Name:</td><td><input type="text" name="user_name" value="{{edit_user.name}}" /></td></tr>
+    <tr><td>Age:</td><td><input type="text" name="user_age" value="{{edit_user.age}}" /></td></tr>
+    <tr><td>Photo:</td><td><input type="file" name="photo" /></td></tr>
+    <tr><td colspan="2" align="center"><input style="zoom:1.3" type="submit" /></td></tr>
+</table>    
+</form>
+
+{{/if}}
+
+<br><br>
+<table border="1" cellpadding="5px" style="width: 50%; border-collapse: collapse;">
+    <tr><th>Name</th><th>Age</th><th>Photo</th><th></th></tr>
+    {{#each userlist}}
+    <tr><td>{{name}}</td><td align="center">{{age}}</td><td align="center"><img height="70px" src="{{photo_path}}" /></td><td align="center"><a href="/?edit={{this._id}}">Edit</a> &nbsp;&nbsp;&nbsp; <a href="/?delete={{this._id}}">Delete</a></td></tr>
+    {{/each}}
+</table>
+</center>
+</body>
+</html>
