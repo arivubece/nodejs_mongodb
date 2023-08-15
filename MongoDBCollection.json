@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "64db100589d6609025968aa0"
+  },
+  "name": "Arivu",
+  "age": "32",
+  "photo_path": "user.jpg"
+},
+{
+  "_id": {
+    "$oid": "64db116c0f86dbe14e1a57ce"
+  },
+  "name": "Ramu",
+  "age": "45",
+  "photo_path": "Screenshot 2023-07-10 185208.jpg"
+}]
